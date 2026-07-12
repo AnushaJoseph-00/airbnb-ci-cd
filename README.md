@@ -1,15 +1,15 @@
-# Airbnb Clone — CI/CD Pipeline on AWS
+# Airbnb Clone - CI/CD Pipeline on AWS
 
 A full-stack Airbnb clone application deployed using a 
 complete CI/CD pipeline on AWS cloud infrastructure.
 
-## 🏗️ Project Overview
+##  Project Overview
 
 This project demonstrates end-to-end DevOps practices by 
 taking an existing full-stack application and building a 
 complete automated CI/CD pipeline around it.
 
-## 🛠️ Application Stack
+##  Application Stack
 - **Framework:** Next.js 14 + TypeScript
 - **Styling:** Tailwind CSS
 - **Database:** MongoDB Atlas + Prisma ORM
@@ -17,7 +17,7 @@ complete automated CI/CD pipeline around it.
 - **Image Storage:** EdgeStore
 - **Maps:** Leaflet
 
-## ☁️ DevOps Stack
+## DevOps Stack
 - **CI/CD:** Jenkins
 - **Code Quality:** SonarQube
 - **Containerisation:** Docker
@@ -25,9 +25,9 @@ complete automated CI/CD pipeline around it.
 - **Hosting:** AWS ECS Fargate
 - **Load Balancer:** AWS ALB
 
-## 🔄 Pipeline Flow
+##  Pipeline Flow
 
-## ☁️ AWS Services Used
+##  AWS Services Used
 - EC2 (Jenkins + SonarQube server)
 - ECR (Container Registry)
 - ECS Fargate (Serverless container hosting)
@@ -35,14 +35,14 @@ complete automated CI/CD pipeline around it.
 - SSM Parameter Store (Secrets management)
 
 
-## 📸 Architecture Diagram
+## Architecture Diagram
 [architecture diagram here]
 
 
-## 🚀 Live URL
+##  Live URL
 [ALB URL here after deployment]
 
-## 🔧 Features
+##  Features
 - User registration and authentication (Google + GitHub)
 - Property listing and browsing
 - Property booking and reservations
@@ -63,7 +63,7 @@ EDGE_STORE_ACCESS_KEY=
 EDGE_STORE_SECRET_KEY=
 ```
 
-## 👩‍💻 Author
+## Author
 Anusha Joseph
 - GitHub: [@AnushaJoseph-00](https://github.com/AnushaJoseph-00)
 
