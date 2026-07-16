@@ -1,56 +1,98 @@
-# Airbnb Clone - CI/CD Pipeline on AWS
+# Airbnb Clone — CI/CD Pipeline on AWS
 
-A full-stack Airbnb clone application deployed using a 
-complete CI/CD pipeline on AWS cloud infrastructure.
+A full-stack Airbnb clone deployed end-to-end using a fully automated CI/CD pipeline on AWS. This project focuses on **DevOps implementation** — containerisation, infrastructure provisioning, secrets management, and continuous delivery.
 
-##  Project Overview
+> Built on top of the original application by [Sudeep Mahato](https://github.com/sudeepmahato16/airbnb-clone). All DevOps architecture and pipeline work by [Anusha Joseph](https://github.com/AnushaJoseph-00).
 
-This project demonstrates end-to-end DevOps practices by 
-taking an existing full-stack application and building a 
-complete automated CI/CD pipeline around it.
+---
 
-##  Application Stack
-- **Framework:** Next.js 14 + TypeScript
-- **Styling:** Tailwind CSS
-- **Database:** MongoDB Atlas + Prisma ORM
-- **Authentication:** NextAuth (Google + GitHub OAuth)
-- **Image Storage:** EdgeStore
-- **Maps:** Leaflet
+## Pipeline Overview
 
-## DevOps Stack
-- **CI/CD:** Jenkins
-- **Code Quality:** SonarQube
-- **Containerisation:** Docker
-- **Container Registry:** AWS ECR
-- **Hosting:** AWS ECS Fargate
-- **Load Balancer:** AWS ALB
+```
+GitHub → Jenkins → SonarQube → Docker → Amazon ECR → ECS Fargate → ALB
+```
 
-##  Pipeline Flow
+Code is pushed to GitHub, triggering a Jenkins webhook. Jenkins runs the build and dispatches a static analysis scan to SonarQube. On quality gate pass, Jenkins builds and tags a Docker image, pushes it to Amazon ECR, and deploys an updated ECS Fargate task behind an Application Load Balancer. Secrets are injected at runtime via SSM Parameter Store — no credentials in the image or repository.
 
-##  AWS Services Used
-- EC2 (Jenkins + SonarQube server)
-- ECR (Container Registry)
-- ECS Fargate (Serverless container hosting)
-- ALB (Application Load Balancer)
-- SSM Parameter Store (Secrets management)
-
+---
 
 ## Architecture Diagram
-[architecture diagram here]
 
+![CI/CD Architecture](docs/screenshots/architecture-diagram.png)
 
-##  Live URL
-[ALB URL here after deployment]
+---
 
-##  Features
-- User registration and authentication (Google + GitHub)
-- Property listing and browsing
-- Property booking and reservations
-- Search and filtering of properties
-- Interactive map using Leaflet
-- Image uploads via EdgeStore
+## DevOps Stack
 
-## 📝 Environment Variables
+| Layer | Tool / Service | Purpose |
+|---|---|---|
+| CI/CD Orchestration | Jenkins (on EC2) | Pipeline trigger, build, deploy |
+| Code Quality | SonarQube (on EC2) | Static analysis, quality gate |
+| Containerisation | Docker | Image build and packaging |
+| Container Registry | Amazon ECR | Private image storage |
+| Container Hosting | AWS ECS Fargate | Serverless task execution |
+| Load Balancing | AWS ALB | HTTPS routing, health checks |
+| Secrets Management | ECS Task Definition env vars | Runtime environment injection |
+| Networking | AWS VPC, Security Groups | Traffic isolation and control |
+
+---
+
+## Application Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 14 + TypeScript |
+| Database | MongoDB Atlas + Prisma ORM |
+| Authentication | NextAuth (Google + GitHub OAuth) |
+| Image Storage | EdgeStore |
+| Maps | Leaflet |
+
+---
+
+## AWS Services Used
+
+- **EC2** — hosts Jenkins and SonarQube on a single instance
+- **ECR** — private Docker image registry, tagged per build
+- **ECS Fargate** — serverless container runtime, no EC2 management
+- **ALB** — application load balancer with health-check routing
+- **VPC / Security Groups** — network segmentation and access control
+
+---
+
+## Pipeline in Action
+
+### Jenkins pipeline — successful build
+![Jenkins Pipeline](docs/screenshots/jenkins-pipeline-success.png)
+
+### SonarQube code quality report
+![SonarQube Report](docs/screenshots/sonarqube-report.png)
+
+### Docker image pushed to Amazon ECR
+![ECR Image](docs/screenshots/ecr-image-pushed.png)
+
+### ECS Fargate service running
+![ECS Service](docs/screenshots/ecs-service-running.png)
+
+### ALB target group — healthy targets
+![ALB Targets](docs/screenshots/alb-healthy-targets.png)
+
+### Application live via ALB URL
+![Live App](docs/screenshots/app-live.png)
+
+---
+
+## Live URL
+
+http://your-alb-dns-here.ap-southeast-2.elb.amazonaws.com
+
+---
+
+## Environment Variables
+
+In production, environment variables are configured directly in the ECS task definition via the AWS console — set when creating the task definition or updating the ECS service. They are injected into the running container at startup and never stored in the image or the repository.
+
+For local development, create a `.env` file at the project root:
+
 ```env
 DATABASE_URL=
 GITHUB_CLIENT_ID=
@@ -63,16 +105,40 @@ EDGE_STORE_ACCESS_KEY=
 EDGE_STORE_SECRET_KEY=
 ```
 
+> Never commit `.env` to source control. Add it to `.gitignore`.
+
+---
+
+## Key DevOps Challenges Solved
+
+**Docker disk exhaustion** — added a `docker system prune` step to the Jenkinsfile to prevent image accumulation filling the EC2 root volume.
+
+**ECS 502/504 errors** — diagnosed ALB target group health check failures caused by incorrect container port mapping in the task definition; corrected port bindings restored healthy routing.
+
+---
+
+## How to Run Locally
+
+```bash
+git clone https://github.com/AnushaJoseph-00/airbnb-clone-ci-cd.git
+cd airbnb-clone-ci-cd
+cp .env.example .env       # fill in your values
+npm install
+npx prisma generate
+npm run dev
+```
+
+---
+
 ## Author
-Anusha Joseph
-- GitHub: [@AnushaJoseph-00](https://github.com/AnushaJoseph-00)
+
+**Anusha Joseph**
+GitHub: [@AnushaJoseph-00](https://github.com/AnushaJoseph-00)
+
+---
 
 ## Credits
 
-Original application developed by 
-[Sudeep Mahato](https://github.com/sudeepmahato16).
+Original application by [Sudeep Mahato](https://github.com/sudeepmahato16) — [sudeepmahato16/airbnb-clone](https://github.com/sudeepmahato16/airbnb-clone).
 
-Original repository: 
-[sudeepmahato16/airbnb-clone](https://github.com/sudeepmahato16/airbnb-clone)
-
-This project focuses on the **DevOps implementation** CI/CD pipeline, containerisation, and AWS deployment built on top of the original application.
+This repository covers the DevOps layer: CI/CD pipeline, containerisation, and AWS deployment built on top of the original codebase.
