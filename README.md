@@ -104,14 +104,6 @@ EDGE_STORE_SECRET_KEY=
 
 ---
 
-## Key DevOps Challenges Solved
-
-**Docker disk exhaustion** — added a `docker system prune` step to the Jenkinsfile to prevent image accumulation filling the EC2 root volume.
-
-**ECS 502/504 errors** — diagnosed ALB target group health check failures caused by incorrect container port mapping in the task definition; corrected port bindings restored healthy routing.
-
----
-
 ## How to Run Locally
 
 ```bash
