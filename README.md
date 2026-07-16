@@ -67,7 +67,7 @@ EDGE_STORE_SECRET_KEY=
 Anusha Joseph
 - GitHub: [@AnushaJoseph-00](https://github.com/AnushaJoseph-00)
 
-## 🙏 Credits
+## Credits
 
 Original application developed by 
 [Sudeep Mahato](https://github.com/sudeepmahato16).
