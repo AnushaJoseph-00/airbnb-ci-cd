@@ -12,7 +12,7 @@ A full-stack Airbnb clone deployed end-to-end using a fully automated CI/CD pipe
 GitHub → Jenkins → SonarQube → Docker → Amazon ECR → ECS Fargate → ALB
 ```
 
-Code is pushed to GitHub, triggering a Jenkins webhook. Jenkins runs the build and dispatches a static analysis scan to SonarQube. On quality gate pass, Jenkins builds and tags a Docker image, pushes it to Amazon ECR, and deploys an updated ECS Fargate task behind an Application Load Balancer. Secrets are injected at runtime via SSM Parameter Store - no credentials in the image or repository.
+Code is pushed to GitHub, triggering a Jenkins webhook. Jenkins runs the build and dispatches a static analysis scan to SonarQube. On quality gate pass, Jenkins builds and tags a Docker image, pushes it to Amazon ECR, and deploys an updated ECS Fargate task behind an Application Load Balancer. Environment variables are configured directly in the ECS task definition - no credentials in the image or repository.
 
 ---
 
