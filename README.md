@@ -1,6 +1,6 @@
-# Airbnb Clone — CI/CD Pipeline on AWS
+# Airbnb Clone : CI/CD Pipeline on AWS
 
-A full-stack Airbnb clone deployed end-to-end using a fully automated CI/CD pipeline on AWS. This project focuses on **DevOps implementation** — containerisation, infrastructure provisioning, secrets management, and continuous delivery.
+A full-stack Airbnb clone deployed end-to-end using a fully automated CI/CD pipeline on AWS. This project focuses on **DevOps implementation** - containerisation, infrastructure provisioning, secrets management, and continuous delivery.
 
 > Built on top of the original application by [Sudeep Mahato](https://github.com/sudeepmahato16/airbnb-clone). All DevOps architecture and pipeline work by [Anusha Joseph](https://github.com/AnushaJoseph-00).
 
@@ -18,7 +18,7 @@ Code is pushed to GitHub, triggering a Jenkins webhook. Jenkins runs the build a
 
 ## Architecture Diagram
 
-![CI/CD Architecture](docs/screenshots/architecture-diagram.png)
+![CI/CD Architecture](architecture-diagram.png)
 
 ---
 
@@ -51,11 +51,11 @@ Code is pushed to GitHub, triggering a Jenkins webhook. Jenkins runs the build a
 
 ## AWS Services Used
 
-- **EC2** — hosts Jenkins and SonarQube on a single instance
-- **ECR** — private Docker image registry, tagged per build
-- **ECS Fargate** — serverless container runtime, no EC2 management
-- **ALB** — application load balancer with health-check routing
-- **VPC / Security Groups** — network segmentation and access control
+- **EC2** - hosts Jenkins and SonarQube on a single instance
+- **ECR** - private Docker image registry, tagged per build
+- **ECS Fargate** - serverless container runtime, no EC2 management
+- **ALB** - application load balancer with health-check routing
+- **VPC / Security Groups** - network segmentation and access control
 
 ---
 
@@ -79,17 +79,12 @@ Code is pushed to GitHub, triggering a Jenkins webhook. Jenkins runs the build a
 ### Application live via ALB URL
 ![Live App](docs/screenshots/app-live.png)
 
----
-
-## Live URL
-
-http://your-alb-dns-here.ap-southeast-2.elb.amazonaws.com
 
 ---
 
 ## Environment Variables
 
-In production, environment variables are configured directly in the ECS task definition via the AWS console — set when creating the task definition or updating the ECS service. They are injected into the running container at startup and never stored in the image or the repository.
+In production, environment variables are configured directly in the ECS task definition via the AWS console - set when creating the task definition or updating the ECS service. They are injected into the running container at startup and never stored in the image or the repository.
 
 For local development, create a `.env` file at the project root:
 
