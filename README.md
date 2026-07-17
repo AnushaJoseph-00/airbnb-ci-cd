@@ -16,12 +16,6 @@ Code is pushed to GitHub, triggering a Jenkins webhook. Jenkins runs the build a
 
 ---
 
-## Architecture Diagram
-
-![CI/CD Architecture](architecture-diagram.png)
-
----
-
 ## DevOps Stack
 
 | Layer | Tool / Service | Purpose |
@@ -61,7 +55,7 @@ Code is pushed to GitHub, triggering a Jenkins webhook. Jenkins runs the build a
 
 ## Pipeline in Action
 
-### Jenkins pipeline — successful build
+### Jenkins pipeline - successful build
 ![Jenkins Pipeline](Jenkins_Image.jpg)
 
 ### SonarQube code quality report
@@ -73,7 +67,7 @@ Code is pushed to GitHub, triggering a Jenkins webhook. Jenkins runs the build a
 ### ECS Fargate service running
 ![ECS Service](ECS_Image.jpg)
 
-### ALB target group — healthy targets
+### ALB target group - healthy targets
 ![ALB Targets](Target_Group.jpg)
 
 ### Application live via ALB URL
