@@ -1,4 +1,4 @@
-# Airbnb Clone : CI/CD Pipeline on AWS
+# Airbnb: CI/CD Pipeline on AWS
 
 A full-stack Airbnb clone deployed end-to-end using a fully automated CI/CD pipeline on AWS. This project focuses on **DevOps implementation** - containerisation, infrastructure provisioning, secrets management, and continuous delivery.
 
@@ -62,7 +62,7 @@ Code is pushed to GitHub, triggering a Jenkins webhook. Jenkins runs the build a
 ## Pipeline in Action
 
 ### Jenkins pipeline — successful build
-![Jenkins Pipeline](.)
+![Jenkins Pipeline](Jenkins_Image.jpg)
 
 ### SonarQube code quality report
 ![SonarQube Report](Sonarqube_Image.jpg)
