@@ -62,22 +62,22 @@ Code is pushed to GitHub, triggering a Jenkins webhook. Jenkins runs the build a
 ## Pipeline in Action
 
 ### Jenkins pipeline — successful build
-![Jenkins Pipeline](docs/screenshots/jenkins-pipeline-success.png)
+![Jenkins Pipeline](.)
 
 ### SonarQube code quality report
 ![SonarQube Report](docs/screenshots/sonarqube-report.png)
 
 ### Docker image pushed to Amazon ECR
-![ECR Image](docs/screenshots/ecr-image-pushed.png)
+![ECR Image](ECR_Image.jpg)
 
 ### ECS Fargate service running
-![ECS Service](docs/screenshots/ecs-service-running.png)
+![ECS Service](ECS_Image.jpg)
 
 ### ALB target group — healthy targets
-![ALB Targets](docs/screenshots/alb-healthy-targets.png)
+![ALB Targets](Target_Group.jpg)
 
 ### Application live via ALB URL
-![Live App](docs/screenshots/app-live.png)
+![Live App](website_live.jpg)
 
 
 ---
