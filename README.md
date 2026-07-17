@@ -65,7 +65,7 @@ Code is pushed to GitHub, triggering a Jenkins webhook. Jenkins runs the build a
 ![Jenkins Pipeline](.)
 
 ### SonarQube code quality report
-![SonarQube Report](docs/screenshots/sonarqube-report.png)
+![SonarQube Report](Sonarqube_Image.jpg)
 
 ### Docker image pushed to Amazon ECR
 ![ECR Image](ECR_Image.jpg)
