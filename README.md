@@ -2,7 +2,7 @@
 
 A full-stack Airbnb clone deployed end-to-end using a fully automated CI/CD pipeline on AWS. This project focuses on **DevOps implementation** - containerisation, infrastructure provisioning, secrets management, and continuous delivery.
 
-> Built on top of the original application by [Sudeep Mahato](https://github.com/sudeepmahato16/airbnb-clone). All DevOps architecture and pipeline work by [Anusha Joseph](https://github.com/AnushaJoseph-00).
+> Built on top of the original application by [Sudeep Mahato](https://github.com/sudeepmahato16/airbnb-clone). All DevOps architecture and pipeline work by me.
 
 ---
 
